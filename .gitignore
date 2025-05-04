@@ -1,0 +1,21 @@
+# Entorno virtual
+venv/
+
+# Archivos de cache de Python
+__pycache__/
+*.py[cod]
+
+# Archivos de configuración del entorno
+.env
+*.env
+
+# Archivos temporales
+*.log
+*.tmp
+
+# Salidas generadas
+output.pdf
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
