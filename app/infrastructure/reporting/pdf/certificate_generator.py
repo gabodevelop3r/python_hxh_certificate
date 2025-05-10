@@ -1,19 +1,20 @@
-# app/infrastructure/certificate_generator.py
-
-import os
 from app.domain.certificate.certificate import Certificate
+import os
 from jinja2 import Template
 from weasyprint import HTML
 
-
 class CertificateGenerator:
+
     @staticmethod
     def generate(certificate_data: Certificate) -> str:
-        template_path = os.path.join(os.path.dirname(__file__), '../templates/certificado.html')
+
+        template_path = os.path.join(os.path.dirname(__file__), '../../../templates/certificate.html')
+
         with open(template_path, 'r') as file:
             template_content = file.read()
 
         template = Template(template_content)
+
         rendered_html = template.render(
             participant_name=certificate_data.participant_name,
             exam_code=certificate_data.exam_code,
@@ -21,7 +22,7 @@ class CertificateGenerator:
             date=certificate_data.date,
         )
 
-        static_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../static'))
+        static_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../static'))
 
         pdf = HTML(string=rendered_html, base_url=static_path).write_pdf()
 

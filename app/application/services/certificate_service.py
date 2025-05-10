@@ -1,6 +1,6 @@
 # app/application/services/certificate_service.py
 from app.domain.certificate.certificate import Certificate
-from app.infrastructure.certificate_generator import CertificateGenerator
+from app.infrastructure.reporting.pdf.certificate_generator import CertificateGenerator
 
 class CertificateService:
     def __init__(self, certificate_generator: CertificateGenerator):

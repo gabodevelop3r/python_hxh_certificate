@@ -1,14 +1,14 @@
 from fastapi import APIRouter
 from app.infrastructure.http.controllers.certificate_controller import CertificateController
-from app.application.services.certificates.get_certificate_service import GetCertificateService
+from app.application.usecases.certificates.generate_certificate_usecase import GenerateCertificateUseCase
 
-from app.infrastructure.certificate_generator import CertificateGenerator
+from app.infrastructure.reporting.pdf.certificate_generator import CertificateGenerator
 certificate_routes = APIRouter()
 
 
-get_certificate_service = GetCertificateService(CertificateGenerator)
+generate_certificate_use_case = GenerateCertificateUseCase(CertificateGenerator)
 
-controller = CertificateController(get_certificate_service)
+controller = CertificateController(generate_certificate_use_case)
 
 @certificate_routes.get("/{certificate_id}")
 async def get_certificate(certificate_id: str):
