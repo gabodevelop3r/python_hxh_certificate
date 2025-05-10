@@ -1,3 +1,5 @@
 weasyprint
 jinja2
 pydantic
+fastapi
+uvicorn[standard]

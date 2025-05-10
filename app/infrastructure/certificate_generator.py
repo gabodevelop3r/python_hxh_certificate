@@ -1,7 +1,7 @@
 # app/infrastructure/certificate_generator.py
 
 import os
-from app.domain.certificate import Certificate
+from app.domain.certificate.certificate import Certificate
 from jinja2 import Template
 from weasyprint import HTML
 

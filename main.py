@@ -1,4 +1,7 @@
-from app.interfaces.cli import run_cli
+from fastapi import FastAPI
+from app.infrastructure.http.routes import api_router
 
-if __name__ == "__main__":
-    run_cli()
+app = FastAPI()
+
+# Incluimos las rutas en la aplicación principal
+app.include_router(api_router)
